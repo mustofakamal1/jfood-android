@@ -1,4 +1,4 @@
-package com.mustofakamal.jfood_android;
+package com.mustofakamal.jfood_android.object;
 
 public class Food {
     private int id;

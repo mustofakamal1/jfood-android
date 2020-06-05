@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9DD360"
-    tools:context="com.mustofakamal.jfood_android.RegisterActivity">
+    tools:context="com.mustofakamal.jfood_android.activity.RegisterActivity">
 
     <EditText
         android:id="@+id/name"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
