@@ -6,27 +6,27 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/jfood_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/jfood_app_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/Theme.Shrine"
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.ChartActivity"
-            android:label="Chart"/>
-        <activity android:name=".activity.SelesaiPesananActivity" />
-        <activity android:name=".activity.BuatPesananActivity" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.RegisterActivity" />
+            android:label="JFood - Chart" />
+        <activity android:name=".activity.SelesaiPesananActivity"
+            android:label="JFood - Order Progress" />
+        <activity android:name=".activity.BuatPesananActivity"
+            android:label="JFood - Create Order" />
+        <activity android:name=".activity.MainActivity"
+            android:label="JFood - Menu" />
+        <activity android:name=".activity.RegisterActivity"
+            android:label="JFood - Register" />
         <activity android:name=".activity.AppBar" />
-        <activity
-            android:name=".activity.BottomBar"
-            android:label="@string/title_activity_bottom_bar" />
-        <activity
-            android:name=".activity.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/Theme.Shrine.NoActionBar"/>
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.LoginActivity"
+            android:label="JFood" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

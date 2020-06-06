@@ -29,6 +29,7 @@
             android:id="@+id/lvExp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pesanan"/>
+            android:layout_below="@+id/pesanan"
+            android:background="@color/colorPrimary"/>
 <!--    </LinearLayout>-->
 </RelativeLayout>

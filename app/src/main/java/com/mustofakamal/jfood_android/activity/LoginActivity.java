@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -84,8 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                         }catch (JSONException e) {
                             Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
                             SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putInt("currentUserId", 1);
-                            editor.putBoolean("login", true);
+                            editor.putBoolean("login", false);
                             editor.apply();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);

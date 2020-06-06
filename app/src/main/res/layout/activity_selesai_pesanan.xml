@@ -1,177 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mustofakamal.jfood_android.activity.SelesaiPesananActivity">
 
-    <Button
-        android:id="@+id/batal"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginBottom="79dp"
-        android:text="Batal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/selesai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="79dp"
-        android:text="Selesai"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <include layout="@layout/activity_app_bar"/>
 
-    <TextView
-        android:id="@+id/invoiceDetails"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:text="Invoice Details"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
 
-    <TextView
-        android:id="@+id/invoiceId"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="12dp"
-        android:text="Invoice ID"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invoiceDetails" />
+            <TextView
+                android:id="@+id/invoiceDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice Details"
+                android:layout_centerInParent="true"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/invoiceIdView"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="34dp"
-        android:text="Invoice ID"
-        android:gravity="end"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/customerNameView"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="32dp"
-        android:text="Customer Name"
-        android:gravity="end"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invoiceIdView" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
 
-    <TextView
-        android:id="@+id/foodNameView"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="32dp"
-        android:text="Nama Makanan"
-        android:gravity="end"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customerNameView" />
+            <TextView
+                android:id="@+id/invoiceId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice ID"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"/>
 
-    <TextView
-        android:id="@+id/orderDateView"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="32dp"
-        android:text="Tanggal Pemesanan"
-        android:gravity="end"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodNameView" />
+            <TextView
+                android:id="@+id/invoiceIdView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice ID"
+                android:gravity="end"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"/>
 
-    <TextView
-        android:id="@+id/totalPriceView"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="32dp"
-        android:text="Total Biaya"
-        android:gravity="end"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderDateView" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/invoiceStatusView"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="32dp"
-        android:text="Invoice Status"
-        android:gravity="end"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/totalPriceView" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
+            <TextView
+                android:id="@+id/customerNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer Name"
+                android:gravity="end"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"/>
 
-    <TextView
-        android:id="@+id/customerName"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:text="Nama Customer"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invoiceId" />
 
-    <TextView
-        android:id="@+id/foodName"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
-        android:text="Nama Makanan"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customerName" />
+            <TextView
+                android:id="@+id/customerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Customer"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"/>
 
-    <TextView
-        android:id="@+id/orderDate"
-        android:layout_width="175dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="18dp"
-        android:text="Tanggal Pemesanan"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodName" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/totalPrice"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="38dp"
-        android:text="Total Biaya"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderDate" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
 
-    <TextView
-        android:id="@+id/invoiceStatus"
-        android:layout_width="147dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="38dp"
-        android:text="Status Invoice"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/totalPrice" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/foodNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Makanan"
+                android:gravity="end"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/foodName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Makanan"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
+            <TextView
+                android:id="@+id/orderDateView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Pemesanan"
+                android:gravity="end"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/orderDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Pemesanan"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
+            <TextView
+                android:id="@+id/totalPriceView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Biaya"
+                android:gravity="end"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Biaya"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
+            <TextView
+                android:id="@+id/invoiceStatusView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice Status"
+                android:gravity="end"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"/>
+            <TextView
+                android:id="@+id/invoiceStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Invoice"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp">
+
+            <Button
+                android:id="@+id/batal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batal"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:id="@+id/selesai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selesai"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

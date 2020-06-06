@@ -4,22 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mustofakamal.jfood_android.R;
+import com.mustofakamal.jfood_android.object.Food;
 
 import java.util.List;
 
 public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<Food> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public ChartAdapter(Context context, List<String> data) {
+    public ChartAdapter(Context context, List<Food> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -34,8 +36,11 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+//        String animal = mData.get(position).getName();
+        holder.myTextView.setText(String.valueOf(position+1));
+        holder.tvFoodName.setText(mData.get(position).getName());
+        holder.tvFoodPrice.setText(String.valueOf(mData.get(position).getPrice()));
+        holder.tvFoodCategory.setText(mData.get(position).getCategory());
     }
 
     // total number of rows
@@ -48,11 +53,25 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
+        TextView tvCode;
+        TextView tvFoodName;
+        TextView tvFoodCategory;
+        TextView tvFoodPrice;
+        TextView tvTotalPrice;
+        ImageButton btnRemove;
+        TextView tvPesanan;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.invoice_id);
-            itemView.setOnClickListener(this);
+            myTextView = itemView.findViewById(R.id.food_id);
+            tvFoodName = itemView.findViewById(R.id.food_name);
+            tvFoodPrice = itemView.findViewById(R.id.food_price);
+            tvFoodCategory = itemView.findViewById(R.id.food_category);
+            tvTotalPrice = itemView.findViewById(R.id.total_price);
+            tvCode = itemView.findViewById(R.id.promo_code);
+            tvFoodName = itemView.findViewById(R.id.food_name);
+            btnRemove = itemView.findViewById(R.id.btn_remove);
+            btnRemove.setOnClickListener(this);
         }
 
         @Override
@@ -63,7 +82,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
 
     // convenience method for getting data at click position
     public String getItem(int id) {
-        return mData.get(id);
+        return mData.get(id).getName();
     }
 
     // allows clicks events to be caught

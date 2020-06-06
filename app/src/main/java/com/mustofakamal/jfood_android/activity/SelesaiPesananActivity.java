@@ -1,11 +1,16 @@
 package com.mustofakamal.jfood_android.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -55,6 +60,9 @@ public class SelesaiPesananActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selesai_pesanan);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         sharedPreferences = getSharedPreferences("Session_Key", Context.MODE_PRIVATE);
         currentUserId = sharedPreferences.getInt("currentUserId", 0);
 
@@ -100,8 +108,9 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject != null) {
-                                fetchPesanan();
                                 Toast.makeText(SelesaiPesananActivity.this, "Cancel Successful", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(SelesaiPesananActivity.this, SelesaiPesananActivity.class);
+                                startActivity(intent);
                             }
                         } catch (JSONException e) {
                             Toast.makeText(SelesaiPesananActivity.this, "Cancel Failed", Toast.LENGTH_LONG).show();
@@ -124,8 +133,9 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject != null) {
-                                fetchPesanan();
                                 Toast.makeText(SelesaiPesananActivity.this, "Finish Successful", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(SelesaiPesananActivity.this, SelesaiPesananActivity.class);
+                                startActivity(intent);
                             }
                         } catch (JSONException e) {
                             Toast.makeText(SelesaiPesananActivity.this, "Finish Failed", Toast.LENGTH_LONG).show();
@@ -144,47 +154,60 @@ public class SelesaiPesananActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
+                    orderDate = "";
                     JSONArray jsonResponse = new JSONArray(response);
                     if (jsonResponse != null) {
+                        StringBuilder strFood = new StringBuilder();
                         for (int i = 0; i < jsonResponse.length(); i++) {
                             JSONObject invoice = jsonResponse.getJSONObject(i);
+                            invoiceStatus = invoice.getString("invoiceStatus");
+                            if(!invoiceStatus.equals("Ongoing")) {
+                                continue;
+                            }
                             JSONArray foods = invoice.getJSONArray("foods");
                             totalPrice = invoice.getInt("totalPrice");
                             invoiceId = invoice.getInt("id");
                             orderDate = invoice.getString("date");
-                            invoiceStatus = invoice.getString("invoiceStatus");
                             paymentType = invoice.getString("paymentType");
                             JSONObject customer = invoice.getJSONObject("customer");
                             customerName = customer.getString("name");
                             for (i = 0; i < foods.length(); i++) {
                                 JSONObject food = foods.getJSONObject(i);
                                 foodName = food.getString("name");
+                                strFood.append(foodName + "\n");
                             }
                         }
-                        orderDate = orderDate.substring(0,10);
-                        Toast.makeText(SelesaiPesananActivity.this, "Fetch Successful", Toast.LENGTH_LONG).show();
-                        tvTotalPriceView.setText(String.valueOf(totalPrice));
-                        tvInvoiceIdView.setText(String.valueOf(invoiceId));
-                        tvOrderDateView.setText(orderDate);
-                        tvInvoiceStatusView.setText(invoiceStatus);
-                        tvCustomerNameView.setText(customerName);
-                        tvFoodNameView.setText(foodName);
+                        if(orderDate.equals("")) {
+                            Toast.makeText(SelesaiPesananActivity.this, "No Ongoing Invoice Found", Toast.LENGTH_LONG).show();
+                            tvInvoiceDetails.setVisibility(View.VISIBLE);
+                            tvInvoiceDetails.setText("No Ongoing Invoice Found");
+                        }
+                        else {
+                            orderDate = orderDate.substring(0,10);
+                            Toast.makeText(SelesaiPesananActivity.this, "Fetch Successful", Toast.LENGTH_LONG).show();
+                            tvTotalPriceView.setText(String.valueOf(totalPrice));
+                            tvInvoiceIdView.setText(String.valueOf(invoiceId));
+                            tvOrderDateView.setText(orderDate);
+                            tvInvoiceStatusView.setText(invoiceStatus);
+                            tvCustomerNameView.setText(customerName);
+                            tvFoodNameView.setText(strFood.toString());
 
-                        btnBatal.setVisibility(View.VISIBLE);
-                        btnSelesai.setVisibility(View.VISIBLE);
-                        tvInvoiceDetails.setVisibility(View.VISIBLE);
-                        tvInvoiceId.setVisibility(View.VISIBLE);
-                        tvInvoiceStatus.setVisibility(View.VISIBLE);
-                        tvCustomerName.setVisibility(View.VISIBLE);
-                        tvFoodName.setVisibility(View.VISIBLE);
-                        tvOrderDate.setVisibility(View.VISIBLE);
-                        tvTotalPrice.setVisibility(View.VISIBLE);
-                        tvInvoiceIdView.setVisibility(View.VISIBLE);
-                        tvInvoiceStatusView.setVisibility(View.VISIBLE);
-                        tvCustomerNameView.setVisibility(View.VISIBLE);
-                        tvFoodNameView.setVisibility(View.VISIBLE);
-                        tvOrderDateView.setVisibility(View.VISIBLE);
-                        tvTotalPriceView.setVisibility(View.VISIBLE);
+                            btnBatal.setVisibility(View.VISIBLE);
+                            btnSelesai.setVisibility(View.VISIBLE);
+                            tvInvoiceDetails.setVisibility(View.VISIBLE);
+                            tvInvoiceId.setVisibility(View.VISIBLE);
+                            tvInvoiceStatus.setVisibility(View.VISIBLE);
+                            tvCustomerName.setVisibility(View.VISIBLE);
+                            tvFoodName.setVisibility(View.VISIBLE);
+                            tvOrderDate.setVisibility(View.VISIBLE);
+                            tvTotalPrice.setVisibility(View.VISIBLE);
+                            tvInvoiceIdView.setVisibility(View.VISIBLE);
+                            tvInvoiceStatusView.setVisibility(View.VISIBLE);
+                            tvCustomerNameView.setVisibility(View.VISIBLE);
+                            tvFoodNameView.setVisibility(View.VISIBLE);
+                            tvOrderDateView.setVisibility(View.VISIBLE);
+                            tvTotalPriceView.setVisibility(View.VISIBLE);
+                        }
                     }
                 } catch (JSONException e) {
                     Toast.makeText( SelesaiPesananActivity.this, String.valueOf(currentUserId), Toast.LENGTH_LONG).show();
@@ -196,5 +219,62 @@ public class SelesaiPesananActivity extends AppCompatActivity {
         PesananFetchRequest pesananFetchRequest = new PesananFetchRequest(currentUserId, responseListener);
         RequestQueue queue = Volley.newRequestQueue(SelesaiPesananActivity.this);
         queue.add(pesananFetchRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuItem = item.getItemId();
+        switch(menuItem) {
+            case R.id.logout:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(true);
+                builder.setTitle("Logout");
+                builder.setMessage("Are you sure want to logout?");
+                builder.setPositiveButton("Confirm",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.clear();
+                                editor.apply();
+                                Toast.makeText(SelesaiPesananActivity.this, "Action Search", Toast.LENGTH_SHORT).show();
+                                Intent logout = new Intent(SelesaiPesananActivity.this, LoginActivity.class);
+                                logout.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(logout);
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+                break;
+
+            case R.id.chart:
+                Toast.makeText(SelesaiPesananActivity.this, "Chart", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SelesaiPesananActivity.this, ChartActivity.class);
+                startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SelesaiPesananActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

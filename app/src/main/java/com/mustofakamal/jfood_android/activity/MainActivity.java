@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.mustofakamal.jfood_android.object.Food;
 import com.mustofakamal.jfood_android.object.Location;
 import com.mustofakamal.jfood_android.adapter.MainListAdapter;
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<Seller, ArrayList<Food>> childMapping = new HashMap<>();
     int currentUserId;
     SharedPreferences sharedPreferences;
+    Gson gson;
 
     MainListAdapter listAdapter;
     ExpandableListView expListView;
+    JSONArray jsonResponse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +62,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Food selected = childMapping.get(listSeller.get(groupPosition)).get(childPosition);
                 Intent buatPesanan = new Intent(MainActivity.this, BuatPesananActivity.class);
-                Bundle data = new Bundle();
-                data.putInt("foodId", selected.getId());
-                data.putString("foodName", selected.getName());
-                data.putString("foodCategory", selected.getCategory());
-                data.putInt("foodPrice", selected.getPrice());
-                buatPesanan.putExtras(data);
+                gson = new Gson();
+                String food_json = gson.toJson(selected);
+                buatPesanan.putExtra("food_json", food_json);
+//                Bundle data = new Bundle();
+//                data.putInt("foodId", selected.getId());
+//                data.putString("foodName", selected.getName());
+//                data.putString("foodCategory", selected.getCategory());
+//                data.putInt("foodPrice", selected.getPrice());
+//                buatPesanan.putExtras(data);
                 startActivity(buatPesanan);
                 return false;
             }
@@ -89,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuItem = item.getItemId();
         switch(menuItem) {
-            case R.id.search:
+            case R.id.logout:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setCancelable(true);
                 builder.setTitle("Logout");
@@ -99,10 +105,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.remove("currentUserId");
-                                editor.remove("name");
-                                editor.remove("email");
-                                editor.remove("login");
+                                editor.clear();
                                 editor.apply();
                                 Toast.makeText(MainActivity.this, "Action Search", Toast.LENGTH_SHORT).show();
                                 Intent logout = new Intent(MainActivity.this, LoginActivity.class);
@@ -123,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
-            case R.id.filter:
-                Toast.makeText(MainActivity.this, "Action Favourites", Toast.LENGTH_SHORT).show();
+            case R.id.chart:
+                Toast.makeText(MainActivity.this, "Chart", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ChartActivity.class);
                 startActivity(intent);
         }
@@ -152,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONArray jsonResponse = new JSONArray(response);
+                    jsonResponse = new JSONArray(response);
                     if (jsonResponse != null) {
                         for (int i = 0; i < jsonResponse.length(); i++) {
                             JSONObject food = jsonResponse.getJSONObject(i);

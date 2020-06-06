@@ -118,4 +118,9 @@
     <string name="pesanan">Pesanan</string>
     <string name="button_checkout">checkout</string>
     <string name="total_chart_price">Total Price : </string>
+    <string name="via_cash_delivery_fee_10000">Via CASH (Delivery Fee = 10000)</string>
+    <string name="via_cashless">Via CASHLESS</string>
+    <string name="logout">logout</string>
+    <string name="chart">chart</string>
+    <string name="order_details">Order Details</string>
 </resources>

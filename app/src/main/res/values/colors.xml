@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e6f2e9</color>
+    <color name="colorPrimary">#4a4f4b</color>
     <color name="colorPrimaryDark">#293233</color>
-    <color name="colorAccent">#55a629</color>
-    <color name="textColorPrimary">#c9c9c9</color>
-    <color name="toolbarIconColor">@color/textColorPrimary</color>
-    <color name="loginPageBackgroundColor">#2f3738</color>
-    <color name="productGridBackgroundColor">#bfbfbf</color>
-    <color name="textInputOutlineColor">#dbdbdb</color>
-    <color name="ColorAppBar">#34cfeb</color>
+    <color name="colorAccent">#c6c9bd</color>
+    <color name="textColorPrimary">#c6c9bd</color>
+    <color name="toolbarIconColor">#f2f5eb</color>
+    <color name="loginPageBackgroundColor">#5b6363</color>
+    <color name="textInputOutlineColor">#d9e319</color>
+    <color name="ColorAppBar">#a31e07</color>
 </resources>

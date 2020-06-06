@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.activity_register);
 
         TextInputLayout tvName = findViewById(R.id.name_text_input);
         TextInputLayout tvEmail = findViewById(R.id.email_text_input);

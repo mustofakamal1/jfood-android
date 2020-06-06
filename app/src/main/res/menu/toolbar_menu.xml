@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/search"
-        android:title="@string/search_title"
+        android:id="@+id/logout"
+        android:icon="@drawable/sign_out"
+        android:title="@string/logout"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/filter"
-        android:icon="@drawable/filter"
-        android:title="@string/filter_title"
+        android:id="@+id/chart"
+        android:icon="@drawable/chart"
+        android:title="@string/chart"
         app:showAsAction="ifRoom" />
 </menu>

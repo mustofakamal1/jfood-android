@@ -28,8 +28,9 @@ public class BuatPesananRequest extends StringRequest {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < foodIdList.size(); i++) {
             int id = foodIdList.get(i);
-            sb.append(id);
+            sb.append(id).append(",");
         }
+        sb.setLength(sb.length()-1);
         String idList = sb.toString();
 
         params.put("foodIdList", idList);
@@ -44,8 +45,9 @@ public class BuatPesananRequest extends StringRequest {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < foodIdList.size(); i++) {
             int id = foodIdList.get(i);
-            sb.append(id);
+            sb.append(id).append(",");
         }
+        sb.setLength(sb.length()-1);
         String idList = sb.toString();
 
         params.put("foodIdList", idList);
