@@ -29,6 +29,13 @@ import org.json.JSONObject;
 
 import java.util.zip.Inflater;
 
+/**
+ * Class LoginActivity adalah class yang berfungsi untuk memproses
+ * proses login user ke dalam aplikasi.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class LoginActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;

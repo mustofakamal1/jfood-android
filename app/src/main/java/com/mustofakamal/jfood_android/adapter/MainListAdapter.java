@@ -15,6 +15,13 @@ import com.mustofakamal.jfood_android.object.Seller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class MainListAdapter adalah class yang berfungsi untuk memproses
+ * daftar food dari setiap seller dalam expandablelistview.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class MainListAdapter extends BaseExpandableListAdapter {
     private Context _context;
     private ArrayList<Seller> _listDataHeader; // header titles

@@ -1,9 +1,9 @@
 package com.mustofakamal.jfood_android.object.type;
 /**
- * Enumeration class FoodCategory - write a description of the enum class here
+ * Enumeration class FoodCategory adalah enum class yang berfungsi membuat kategori food di jFood.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Mustofa Kamal
+ * @version 07-06-2020
  */
 public enum FoodCategory {
     Beverages("Beverages"), Coffee("Coffee"), Western("Western"),

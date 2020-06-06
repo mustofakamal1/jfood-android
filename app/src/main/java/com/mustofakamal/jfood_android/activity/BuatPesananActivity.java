@@ -40,6 +40,13 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class BuatPesananActivity adalah class yang berfungsi untuk membuat
+ * pesanan baik untuk order ataupun add to chart dari food yang dipilih.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class BuatPesananActivity extends AppCompatActivity {
     private int currentUserId;
     private int id_food;
@@ -88,7 +95,7 @@ public class BuatPesananActivity extends AppCompatActivity {
 //        foodPrice = data.getInt("foodPrice");
         id_food = food.getId();
         foodName = food.getName();
-        foodCategory = food.getCategory();
+        foodCategory = food.getCategory().toString();
         foodPrice = food.getPrice();
 
         final TextView tvCode = findViewById(R.id.textCode);

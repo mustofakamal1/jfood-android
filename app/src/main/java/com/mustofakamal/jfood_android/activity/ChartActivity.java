@@ -55,6 +55,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class ChartActivity adalah class yang berfungsi untuk memproses
+ * chart berupa daftar food yang dipilih untuk selanjutnya diorder dalam satu invoice.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class ChartActivity extends AppCompatActivity implements ChartAdapter.ItemClickListener {
 
     SharedPreferences sharedPreferences;

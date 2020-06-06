@@ -28,6 +28,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+/**
+ * Class SelesaiPesananActivity adalah class yang berfungsi untuk memproses
+ * proses penyelesaian invoice yang sedang dalam proses.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class SelesaiPesananActivity extends AppCompatActivity {
     int currentUserId;
     SharedPreferences sharedPreferences;

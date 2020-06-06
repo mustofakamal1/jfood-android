@@ -21,6 +21,13 @@ import com.mustofakamal.jfood_android.request.RegisterRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class RegisterActivity adalah class yang berfungsi untuk memproses
+ * proses registrasi user baru.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     @Override

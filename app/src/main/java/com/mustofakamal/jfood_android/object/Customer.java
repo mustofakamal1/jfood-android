@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * customer di jFood.
  *
  * @author Mustofa Kamal
- * @version 28-02-2020
+ * @version 07-06-2020
  */
 public class Customer {
     // instance variables

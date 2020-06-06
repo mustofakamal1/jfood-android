@@ -9,6 +9,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class BuatPesananRequest adalah class yang berfungsi untuk membuat
+ * rest requset ke rest server untuk proses data yang dibutuhkan untuk pembuatan pesanan.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class BuatPesananRequest extends StringRequest {
     private static final String URL_PROMO = "http://192.168.43.28:8080/promo/";
     private static final String URL_CASH = "http://192.168.43.28:8080/invoice/createCashInvoice";

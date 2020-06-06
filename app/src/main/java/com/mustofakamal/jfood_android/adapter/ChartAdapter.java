@@ -14,6 +14,13 @@ import com.mustofakamal.jfood_android.object.Food;
 
 import java.util.List;
 
+/**
+ * Class ChartAdapter adalah class yang berfungsi untuk memproses
+ * daftar food pada chart dalam recyclerview.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> {
 
     private List<Food> mData;
@@ -40,7 +47,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         holder.myTextView.setText(String.valueOf(position+1));
         holder.tvFoodName.setText(mData.get(position).getName());
         holder.tvFoodPrice.setText(String.valueOf(mData.get(position).getPrice()));
-        holder.tvFoodCategory.setText(mData.get(position).getCategory());
+        holder.tvFoodCategory.setText(mData.get(position).getCategory().toString());
     }
 
     // total number of rows

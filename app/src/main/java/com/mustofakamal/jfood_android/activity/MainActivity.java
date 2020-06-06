@@ -34,6 +34,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class MainActivity adalah class yang berfungsi untuk memproses
+ * daftar menu / food dari setiap seller.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ */
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Seller> listSeller = new ArrayList<>();
     private ArrayList<Food> foodIdList = new ArrayList<>();

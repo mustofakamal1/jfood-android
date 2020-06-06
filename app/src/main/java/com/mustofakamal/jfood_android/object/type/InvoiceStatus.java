@@ -1,9 +1,9 @@
 package com.mustofakamal.jfood_android.object.type;
 /**
- * Enumeration class FoodCategory - write a description of the enum class here
+ * Enumeration class InvoiceStatus adalah enum class yang berfungsi membuat tipe status invoice di jFood.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Mustofa Kamal
+ * @version 07-06-2020
  */
 public enum InvoiceStatus {
     Ongoing("Ongoing"), Finished("Finished"), Cancelled("Cancelled");

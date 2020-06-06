@@ -9,6 +9,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Class AppBar adalah class yang berfungsi untuk membuat
+ * app bar pada apliakasi.
+ *
+ * @author Mustofa Kamal
+ * @version 07-06-2020
+ *
+ * @deprecated yang digunakan hanya layout xml nya saja
+ */
 public class AppBar extends AppCompatActivity {
 
     @Override
